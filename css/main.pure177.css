@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .poppins-light {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
@@ -32,7 +33,6 @@
     overflow: hidden
 }
 
-@charset "UTF-8";
 :root {
     --bs-blue: #0d6efd;
     --bs-purple: #6f42c1;
@@ -1441,8 +1441,25 @@ header,
 main,
 nav,
 section {
-    display: block
+    display: block;
 }
+
+/* BEGIN INP optimization */
+footer,
+main,
+nav,
+section,
+.block__design,
+.embassy-left-col__list,
+iframe {
+    contain: content
+}
+
+footer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 100vw auto 196.67px;
+}
+/* END INP optimization */
 
 body {
     margin: 0;
@@ -2255,6 +2272,7 @@ h2 {
 
 @media(max-width:991px) {
     .header-right__menu {
+        contain: content;
         position: fixed;
         transition: all 100ms ease;
         top: 0;
@@ -2786,6 +2804,8 @@ h2 {
 
 @media(max-width:991px) {
     .embassy-country__left-column {
+        display:none;
+        content-visibility: hidden;
         width: 100%;
         margin-right: 0;
         margin-bottom: 37px

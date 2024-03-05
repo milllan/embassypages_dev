@@ -207,23 +207,25 @@
 <div class="embassy-mission__map block__design" id="map">
 <h2>Location map of the embassy</h2><br>
 <div class="contact__map">
-<div class="map_screen">
+<div class="map_screen" id="map1">
 </div>
 </div>
 </div>
 <script>
         function loadMapIframe() {
-            window.removeEventListener("scroll", loadMapIframe);
-            var iframe = document.createElement("iframe");
-            var combinedAddress = "48.2024 16.3682";
-            iframe.title = "embassy location map";
-            iframe.width = "100%";
-            iframe.height = "400px";
-            iframe.style.border = "0";
-            iframe.allowFullscreen = true;
-            iframe.referrerPolicy = "no-referrer-when-downgrade";
-            iframe.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAYv7FfIpi8-WQi_Wep02JsUik3bFEMeAk&q=" + combinedAddress;
-            document.querySelector(".map_screen").appendChild(iframe);
+            if (window.scrollY > 99) {
+                window.removeEventListener("scroll", loadMapIframe);
+                var iframe = document.createElement("iframe");
+                var combinedAddress = "48.2024 16.3682";
+                iframe.title = "embassy location map";
+                iframe.width = "100%";
+                iframe.height = "400px";
+                iframe.style.border = "0";
+                iframe.allowFullscreen = true;
+                iframe.referrerPolicy = "no-referrer-when-downgrade";
+                iframe.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAYv7FfIpi8-WQi_Wep02JsUik3bFEMeAk&q=" + combinedAddress;
+                document.querySelector("#map1").appendChild(iframe);
+            }
         }
         window.addEventListener("scroll", loadMapIframe);
     </script> <div class="embassy-mission__consular-section block__design" id="consularSection"><a href="https://www.embassypages.com/updatec/embassy3710" class="btn-update">Update</a>
@@ -271,9 +273,28 @@
 </div></div> <div class="embassy-mission__map block__design">
 <h2>Location map of the consular section</h2><br>
 <div class="contact__map">
-<div class="map_screen">
-<iframe title="Location map of the consular section" width="100%" height="400px" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAYv7FfIpi8-WQi_Wep02JsUik3bFEMeAk&q=Opernring+3-5+Top+601,+1010+Wien,+Austria"></iframe>
+<div class="map_screen" id="map2">
+<!--iframe title="Location map of the consular section" width="100%" height="400px" style="border:0"
+loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAYv7FfIpi8-WQi_Wep02JsUik3bFEMeAk&q=Opernring+3-5+Top+601,+1010+Wien,+Austria"></!--iframe-->
 </div>
+<script>
+    function loadMapIframe2() {
+        if (window.scrollY > 999) {
+            window.removeEventListener("scroll", loadMapIframe2);
+            var iframe = document.createElement("iframe");
+            iframe.title = "embassy location map";
+            iframe.width = "100%";
+            iframe.height = "400px";
+            iframe.style.border = "0";
+            iframe.allowFullscreen = true;
+            iframe.referrerPolicy = "no-referrer-when-downgrade";
+            iframe.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAYv7FfIpi8-WQi_Wep02JsUik3bFEMeAk&q=Opernring+3-5+Top+601,+1010+Wien,+Austria";
+            document.querySelector("#map2").appendChild(iframe);
+        }
+    }
+    window.addEventListener("scroll", loadMapIframe2);
+</script>
 </div>
 </div>
 <div class="embassy-mission__contact-details block__design" id="openingHours">
